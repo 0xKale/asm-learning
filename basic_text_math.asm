@@ -1,12 +1,15 @@
 ; Build:
 ; nasm -f elf64 basic_text_math.asm -o hello.o
 ; gcc -no-pie hello.o -o hello
+; wsl bash -c "cd /mnt/c/Users/dismay/Documents/GitHub/asm-learning && nasm -f elf64 basic_text_math.asm -o hello.o && gcc -no-pie hello.o -o hello && ./hello"
+; Keep pie flag disabled, disabling pie is just for easier learning/debugging (no need to worry about ASLR/relocations) and is usually for legacy/security reasons
+;
 ;
 ; Memory/addressing:
 ; [input2] means "dereference": read/write memory at label input2
 ; mov = copies data between operands (register/memory/immediate, depending on form)
 ; lea = Load Effective Address: computes an address, does NOT read memory (similar to: base address + offset)
-; rel = RIP-relative addressing (x86-64), useful for referring to nearby labels 
+; rel = RIP-relative addressing (x86-64), useful for referring to nearby labels. Safer but not required if you disable PIE and know your code/data will be at fixed addresses. In practice, you would typically want to keep pie enabled for security (ASLR) and use RIP-relative addressing for data access, which works regardless of where the code/data is loaded in memory.
 ;
 ; Math instructions:
 ; add  = integer addition
