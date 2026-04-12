@@ -5,8 +5,8 @@
 ; Memory/addressing:
 ; [input2] means "dereference": read/write memory at label input2
 ; mov = copies data between operands (register/memory/immediate, depending on form)
-; lea = Load Effective Address: computes an address, does NOT read memory
-; rel = RIP-relative addressing (x86-64), useful for referring to nearby labels (base address + offset)
+; lea = Load Effective Address: computes an address, does NOT read memory (similar to: base address + offset)
+; rel = RIP-relative addressing (x86-64), useful for referring to nearby labels 
 ;
 ; Math instructions:
 ; add  = integer addition
