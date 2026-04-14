@@ -20,7 +20,7 @@ _else_start:
     mov ECX, [rel output] ; jle is 0 or negative, we are here
     imul ECX, 2 ; output * 2
 
-_after_if:
+_after_if: ; We are out of the conditionals if it was C
     add ECX, 5 ; output + 5, or (output * 2) + 5 depending on the branch taken
     mov [rel output], ECX ; place value to output variable
 
