@@ -68,7 +68,7 @@ _main:
     call _printf
     add esp, 4
 
-    ; wait 0.05 seconds
+    ; wait 0.01 seconds
     push dword 1
     call _Sleep@4
     jmp .loop
